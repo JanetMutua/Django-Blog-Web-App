@@ -2,7 +2,8 @@
 {%block content%}
     {%for post in posts%}
     <h1>{{post.title}}</h1>
-    <p>By {{post.author}} on {{post.date}}</p>
+    <p>By {{post.author}} on {{post.date|date:'F d Y'}}</p>
     <p>{{post.content}}</p>
     {%endfor%}
 {%endblock content%}
+
