@@ -1,22 +1,22 @@
 from django.shortcuts import render
 from .models import Post
-
-posts = [
-    {'author': 'Mark',
-     'title': 'BMS Builder',
-     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, assumenda nemo eveniet libero ab molestiae, sunt animi aperiam quibusdam provident fugiat voluptates quis earum. Minima quo perferendis animi beatae repellat!',
-     'date': '12/01/2020'},
-
-    {'author': 'Jean',
-     'title': 'Commercial Setup Teams',
-     'content': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, assumenda nemo eveniet libero ab molestiae, sunt animi aperiam quibusdam provident fugiat voluptates quis earum. Minima quo perferendis animi beatae repellat!',
-     'date': '01/02/2020'}
-]
+from django.views.generic import ListView, DetailView
 
 
 def home(request):
     context = {'posts': Post.objects.all()}
     return render(request, 'blog/home.html', context)
+
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'blog/home.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'posts'
+    ordering = ['-date']
+
+
+class PostDetailView(DetailView):
+    model = Post
 
 
 def about(request):
