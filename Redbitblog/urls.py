@@ -46,7 +46,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('profile/', user_views.profile, name='profile'),
 
-    # ----------------------------------passwords reset links----------------------------------------------
+    # -------------------------passwords reset links----------------------------------------------
 
 
     path('password_reset/', auth_views.PasswordResetView.as_view(
@@ -59,7 +59,7 @@ urlpatterns = [
 ]
 
 
-# -----------------------------loading media---------------------------------------------------------------
+# ---------------------loading media--------------------------------------------------------
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
