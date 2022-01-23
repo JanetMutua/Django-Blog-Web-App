@@ -1,1 +1,1 @@
-web: gunicorn redbitblog.wsgi--log-file -
+web: gunicorn Redbitblog.wsgi--log-file -
