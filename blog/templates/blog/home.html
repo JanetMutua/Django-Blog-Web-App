@@ -37,8 +37,8 @@
         <div class="card">
             <div class="row">
                 <div class="col-md-5 wrapthumbnail">
-                    <a href="#">
-                        <div class="thumbnail" style="background-image:url(assets/img/demopic/1.jpg);">
+                    <a href="{%url 'post-detail' post.id%}">
+                        <div class="thumbnail" style="background-image:url({{post.picture.url}});">
                         </div>
                     </a>
                 </div>
